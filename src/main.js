@@ -9,12 +9,15 @@ import axios from 'axios'
 import "openlayers/css/ol.css";
 import App from './App'
 import router from './router'
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
 import SuperMapCesium from 'vue-cesium-supermap'
-//mport '@babel/polyfill'
+import '@babel/polyfill'
 Vue.use(SuperMapCesium, {
   cesiumPath: './static/Cesium'
 })
 Vue.use(ElementUI)
+Vue.use(iView)
 Vue.config.productionTip = false
 Vue.prototype.axios = axios
 Vue.prototype.$config = config

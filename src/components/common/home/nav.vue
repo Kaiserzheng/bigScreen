@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       navList: this.$config.homeNavList,
-      activeIndex: 0
+      activeIndex: 2
     };
   },
   props: {

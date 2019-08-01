@@ -7,7 +7,7 @@
       <leftTree @thematicChange="thematicChange" /> <!-- 左上角图层管理 -->
       <layerChange v-if="map" :map="map" /> <!-- 基础底图切换 -->
       <toollegend></toollegend> <!-- 图例 -->
-      <information></information> <!--动态监测统计图表-->
+      <!--<information></information> 动态监测统计图表-->
     </div>
     <!-- ol弹窗不能直接使用组件作为父容器，故套一层 -->
     <div id="popup" class="ol-popup">
@@ -33,7 +33,7 @@
   import toolTwo from "@/components/common/map/tools/toolTwo";
   import layerChange from "@/components/common/map/tools/layerChange";
   import toollegend from "./tools/toollegend";
-  import information from "@/components/view/pecialMonitor/tools/information";
+  // import information from "@/components/view/pecialMonitor/tools/information";
   import leftTree from "./tools/leftTree";
   import popup from "./tools/popup";
   import { setTimeout } from "timers";
@@ -60,7 +60,6 @@
       leftTree,
       popup,
       toollegend,
-      information
     },
     computed: {
       layerTimeSlideControl: function() {

@@ -4,9 +4,9 @@
     <infoContent v-if="infoShow" :riverLakeInfo="riverLakeInfo" :infoTitle="infoTitle"></infoContent>
     <riveMap ref="riverMap" :style="{height: mapHeight}" @toggleEcharts="toggleEcharts" :mapPosition="mapPosition"></riveMap>
     <div class="echarts-container">
-      <listEcha 
+      <listEcha
         ref="listEcharts"
-        :echartsH="echartsH" 
+        :echartsH="echartsH"
         @echartsMapPosiotn="echartsMapPosiotn"
         @infoTitleChange="infoTitleChange"
         @riverLakeInfoHandle="riverLakeInfoHandle">
@@ -16,10 +16,11 @@
 
 </template>
 <script>
-import riveMap from "@/components/view/riverMonitor/tools/map";
-import listEcha from "@/components/view/riverMonitor/tools/listEcharts";
-import toolNav from "@/components/view/riverMonitor/tools/toolNav";
-import infoContent from "@/components/view/riverMonitor/tools/infoContent";
+import ol from "openlayers";
+import riveMap from "./tools/map";
+import listEcha from "./tools/listEcharts";
+import toolNav from "./tools/toolNav";
+import infoContent from "./tools/infoContent";
 export default {
   name: 'riverMonitor',
   components: {

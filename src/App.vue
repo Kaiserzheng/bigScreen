@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <homeNav/>
-    <router-view/>
+    <router-view class="routerView" />
   </div>
 </template>
 
@@ -49,7 +49,11 @@ img{
   border-color: rgb(22, 38, 89);
   border-width: 40px 10px 20px 20px;
 }
-.ol-overlaycontainer-stopevent{
+.ol-overlaycontainer-stopevent,.cesium-viewer-fullscreenContainer,.cesium-viewer-bottom{
   display: none!important;
+}
+.routerView{
+  height: 100%;
+  width: 100%;
 }
 </style>

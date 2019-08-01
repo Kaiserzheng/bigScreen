@@ -17,7 +17,7 @@
   import "@supermap/iclient-openlayers";
   import layerChange from "@/components/common/map/tools/layerChange";
   import toolTwo from "@/components/common/map/tools/toolTwo";
-  import toollegend from "@/components/view/riverMonitor/tools/toollegend";
+  import toollegend from "./toollegend";
   import {setTimeout} from 'timers';
 
   export default {
