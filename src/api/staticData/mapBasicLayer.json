@@ -1,0 +1,29 @@
+{
+    "data": [ {
+        "cnName": "谷歌地图",
+        "enName": "google",
+        "type": "UrlTemplate",
+        "poster": "poster_google.png",
+        "resource": "http://mt1.google.cn/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali"
+    }, {
+        "cnName": "天地图",
+        "enName": "tdt",
+        "type": "WebMap",
+        "poster": "poster_tdt.png",
+        "key": "5b5318d6a4fea1e4d057e1ee1590a211",
+        "resource": "http://t0.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles"
+    }, {
+        "cnName": "高德地图",
+        "enName": "gaode",
+        "type": "UrlTemplate",
+        "poster": "poster_gaode.png",
+        "resource": "https://webst02.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}"
+    },{
+        "cnName": "BingMap",
+        "enName": "bing",
+        "type": "BingMaps",
+        "poster": "poster_bing.png",
+        "key": "Anj-9MtXSLautmr4Qk1pvyAdCPsksSOFXoBix8cS-LwP1xP8v7pe8tp-ITwc429M",
+        "resource": "//dev.virtualearth.net"
+    }]
+}

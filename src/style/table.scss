@@ -1,0 +1,84 @@
+// 管理中心表格
+.manage-table {
+  margin-top: 20px;
+  border: 1px solid #f0f0f0;
+  /deep/ .el-table thead th {
+    background-color: #f0f0f0;
+		padding: 10px 8px;
+		color: #4e4e4e;
+		border-right: 2px solid #fff;
+		border-bottom: none;
+    font-weight: 500;
+  }
+  /deep/ .el-table thead tr th:nth-last-child(2) {
+    border-right: none;
+  }
+  /ddep/ .el-table thead tr > th:first-child  {
+    border-left: 2px solid #fff;
+  }
+  /deep/ .el-table-column--selection .cell {
+    padding: 0;
+  }
+  /deep/ .el-table .el-table__body .cell {
+    padding: 0 20px;
+	  font-size: 13px;
+  }
+  /deep/ .manage-table-handle {
+    display: flex;
+    align-items: center;
+    > div {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin-right: 5px;
+      user-select: none;
+      > .icon {
+        user-select: none;
+      }
+      &.edit > .icon {
+        color: #a8cf59;
+      }
+      &.lock > .icon {
+        color: #6b9fef;
+      }
+      &.delete > .icon {
+        color: #ffb431;
+      }
+      &.reset > .icon {
+        color: #f47d7d;
+      }
+      &.allot > .icon {
+        color: #e24ef4;
+      }
+    }
+  }
+  /deep/ .manage-table-handle > div .icon {
+    font-size: 20px;
+  }
+  /deep/ tbody > tr:last-child > td {
+    border-bottom: none;
+  }
+  /deep/ .el-table::before {
+    display: none;
+  }
+  /deep/ .el-table {
+    min-height: 150px;
+    min-width: 950px;
+  }
+  /deep/ .one-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+}
+.table-paging {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}

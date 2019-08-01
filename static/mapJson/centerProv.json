@@ -1,0 +1,192 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          116.0409160,
+          43.9310190
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "NAME": "锡林郭勒盟",
+        "SUBTYPE": 2.0,
+        "TYPE": 50.0,
+        "USER_COMMENT": "",
+        "UserID": 0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          119.7584810,
+          49.2096830
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "NAME": "呼伦贝尔市",
+        "SUBTYPE": 2.0,
+        "TYPE": 50.0,
+        "USER_COMMENT": "",
+        "UserID": 0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          122.0320770,
+          46.0801250
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "NAME": "兴安盟",
+        "SUBTYPE": 2.0,
+        "TYPE": 50.0,
+        "USER_COMMENT": "",
+        "UserID": 0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          106.7906890,
+          39.6528870
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "NAME": "乌海市",
+        "SUBTYPE": 2.0,
+        "TYPE": 50.0,
+        "USER_COMMENT": "",
+        "UserID": 0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          122.2391240,
+          43.6500970
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "NAME": "通辽市",
+        "SUBTYPE": 2.0,
+        "TYPE": 50.0,
+        "USER_COMMENT": "",
+        "UserID": 0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          109.7760060,
+          39.6068160
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "NAME": "鄂尔多斯市",
+        "SUBTYPE": 2.0,
+        "TYPE": 50.0,
+        "USER_COMMENT": "",
+        "UserID": 0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          118.8827460,
+          42.2566470
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "NAME": "赤峰市",
+        "SUBTYPE": 2.0,
+        "TYPE": 50.0,
+        "USER_COMMENT": "",
+        "UserID": 0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          105.7247180,
+          38.8509690
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "NAME": "阿拉善盟",
+        "SUBTYPE": 2.0,
+        "TYPE": 50.0,
+        "USER_COMMENT": "",
+        "UserID": 0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          109.8345290,
+          40.6562010
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "NAME": "包头市",
+        "SUBTYPE": 2.0,
+        "TYPE": 50.0,
+        "USER_COMMENT": "",
+        "UserID": 0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          113.1264730,
+          40.9921280
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "NAME": "乌兰察布市",
+        "SUBTYPE": 2.0,
+        "TYPE": 50.0,
+        "USER_COMMENT": "",
+        "UserID": 0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          107.3821310,
+          40.7417170
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "NAME": "巴彦淖尔市",
+        "SUBTYPE": 2.0,
+        "TYPE": 50.0,
+        "USER_COMMENT": "",
+        "UserID": 0
+      },
+      "type": "Feature"
+    }
+  ]
+}
