@@ -41,7 +41,7 @@
       },
       timeSliderPosition: {
         default: function () {
-          return '20px'
+          return '40px'
         }
       },
     },
@@ -122,13 +122,17 @@
       position: fixed;
       left: 50%;
       z-index: 30;
-      padding: 0 36px 12px 30px;
+      padding: 0 36px 24px 36px;
       overflow: hidden;
-      width: 300px;
+      width: 400px;
       border-radius: 5px;
       background: #f1f1f1;
-      margin-left: -150px;
+      margin-left: -200px;
       display: none;
+      /deep/ .el-slider__marks-text{
+        font-size: 18px;
+        white-space:nowrap;
+      }
     }
 
   }

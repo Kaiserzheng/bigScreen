@@ -51,7 +51,7 @@
         tipShow:false,
         panoramaFlag: false,
         popupData: null,
-        timeSliderPosition: '10px',
+        timeSliderPosition: '40px',
       };
     },
     components: {

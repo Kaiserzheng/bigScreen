@@ -88,11 +88,11 @@ export default {
     height: 30px;
     background:$background;
     position: absolute;
-    right: 5px;
+    right: 10px;
     color: #fff;
     font-size: 22px;
     padding: 0px 4px;
-    bottom: 90px;
+    bottom: 155px;
     z-index: 55;
     border-radius: 4px;
     cursor: pointer;
@@ -103,8 +103,8 @@ export default {
     box-sizing: content-box;
     width: 150px;
     position: absolute;
-    right: 5px;
-    top:139px;
+    right: 10px;
+    top: 308px;
     z-index: 30;
     border: 1px solid $background;
     background-color:$workspacebag;

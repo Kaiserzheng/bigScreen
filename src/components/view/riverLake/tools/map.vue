@@ -120,7 +120,7 @@
         if(this.echartsShow){
           this.timeSliderPosition = '40%'
         }else{
-          this.timeSliderPosition = '20px'
+          this.timeSliderPosition = '40px'
         }
         this.echartsShow = !this.echartsShow
         this.$emit('toggleEcharts', this.echartsShow)

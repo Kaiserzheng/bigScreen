@@ -1,7 +1,7 @@
 <template>
-  <div v-if="navHeight">
-    <div class="tool-nav-icon" title="展开面板" :class="{'active': panelHide}" @click="panelHide = false" ref="tips"><Icon type="logo-buffer" /></div>
-    <div class="tool-nav-list" :style="{'height': navHeight + 'px'}" :class="{'hidden': panelHide}" ref="content" id="toolNav">
+  <div class="topBox" v-if="navHeight">
+    <div class="tool-nav-icon" title="展开面板" :style="{'left': computedLeft}" :class="{'active': panelHide}" @click="panelHide = false" ref="tips"><Icon type="logo-buffer" /></div>
+    <div class="tool-nav-list" :style="{'height': navHeight + 'px','left': computedLeft}" :class="{'hidden': panelHide}" ref="content" id="toolNav">
       <div class="title" @mousedown.stop="mousedown($event)">
         <div class="icon-content" title="收起面板" @click.stop="panelHide = true"><Icon type="logo-buffer" /></div>
         <p>{{navListTitle}}</p>
@@ -32,7 +32,8 @@
         navHeight: 0,
         navlistData: [],
         treeData: this.$config.thematicMonitoringTree,
-        navListTitle: '图层管理'
+        navListTitle: '图层管理',
+        computedLeft: ''
       }
     },
     methods: {
@@ -56,6 +57,8 @@
           }else if(n>document.documentElement.clientHeight-toolNav.offsetHeight-75){
             n=document.documentElement.clientHeight-toolNav.offsetHeight-75
           }
+          this.$refs.tips.style.left =  m + 'px';
+          this.$refs.tips.style.top =  n + 'px';
           toolNav.style.left =  m+ 'px' ;
           toolNav.style.top =  n+ 'px';
         }
@@ -77,6 +80,7 @@
   mounted() {
     this.$nextTick(() => {
       this.setNavHeight()
+      this.computedLeft = document.body.offsetWidth - 260 + 'px'
     })
   }
 }
@@ -91,7 +95,6 @@
     cursor: pointer;
     background-color: $background;
     position: absolute;
-    left: 20px;
     top: 5px;
     z-index: 29;
     opacity: 0;
@@ -110,7 +113,6 @@
   .tool-nav-list {
     width: 200px;
     position: absolute;
-    left: 20px;
     top: 5px;
     border-radius: 4px;
     box-sizing: content-box;
@@ -146,7 +148,7 @@
         }
       }
       p {
-        font-size: 14px;
+        font-size: 16px;
         padding-left: 5px;
         pointer-events: none;
         user-select: none;
@@ -169,6 +171,9 @@
     }
     .nav-content > .item:nth-last-child(2) {
       border-bottom: none;
+    }
+    /deep/ .leftTree span{
+      font-size: 16px!important;
     }
   }
 </style>
