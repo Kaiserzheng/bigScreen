@@ -22,6 +22,7 @@ body,html {
   margin: 0;
   padding: 0;
   color: #000000;
+  font-size: 16px;
 }
 ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img,input{
   margin:0;
@@ -55,5 +56,9 @@ img{
 .routerView{
   height: 100%;
   width: 100%;
+  overflow: hidden;
+}
+.el-scrollbar__wrap{
+  overflow-x:hidden;
 }
 </style>

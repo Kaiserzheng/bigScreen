@@ -1,13 +1,12 @@
 <template>
   <div id="mapRiverBox">
     <div id="mapRiver" ref="map">
-      <toolTwo :fullScreenDomID="'mapRiver'" @timeSliderToggle="timeSliderToggle" :timeSliderPosition="timeSliderPosition" :layerTSC="layerTimeSlideControl" :map="map" />
+      <toolTwo v-if="map" @timeSliderToggle="timeSliderToggle" :timeSliderPosition="timeSliderPosition" :layerTSC="layerTimeSlideControl" :map="map" />
       <div ref="tipCt" id="tip" v-show="tipShow" v-bind:style="{left:left,top:top}">{{tipMessage}}</div>
     </div>
     <layerChange v-if="map" :map="map"/>
     <toollegend></toollegend>
     <div class="echarts-toggle" @click="echartsToggle" ref="eachBtncc" :class="{'active': echartsShow}"><i class="el-icon-arrow-down"></i></div>
-    <!-- <toolNav></toolNav> -->
   </div>
 </template>
 
@@ -26,7 +25,7 @@
     data() {
       return {
         map: null,
-        timeSliderPosition: '36%',
+        timeSliderPosition: '40%',
         riverLakeLys: null,
         left: 0,
         top: 0,
@@ -119,7 +118,7 @@
       // echarts 收缩展开
       echartsToggle() {
         if(this.echartsShow){
-          this.timeSliderPosition = '36%'
+          this.timeSliderPosition = '40%'
         }else{
           this.timeSliderPosition = '20px'
         }

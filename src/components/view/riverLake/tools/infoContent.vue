@@ -1,5 +1,5 @@
 <template>
-  <div id="infoContent" class="main-content" :class="{'hidden': panelHide, 'move': moving}">
+  <div id="infoContent" class="main-content" :style="{left: computedLedft}" :class="{'hidden': panelHide, 'move': moving}">
     <div class="title" @mousedown.stop="mousedown($event)">
       <div class="tool-nav-icon" title="展开面板" :class="{'active': panelHide}" @click.stop="openContent" ref="tips"><i class="el-icon-s-order icon"></i></div>
       <div class="icon-content" title="收起面板" @click.stop="closeContent"><i class="el-icon-s-order icon"></i></div>
@@ -23,7 +23,8 @@ export default {
       panelHide: false,
       moving: false,
       cWidth: 0,
-      cHeight: 0
+      cHeight: 0,
+      computedLedft: ''
     }
   },
   methods: {
@@ -98,6 +99,9 @@ export default {
       infoContent.style.width = width + 'px';
       infoContent.style.height = height + 'px';
     }
+  },
+  mounted() {
+    this.computedLedft = document.body.offsetWidth - 490 + 'px'
   }
 }
 </script>
@@ -109,8 +113,7 @@ export default {
     background-color: #fff;
     position: absolute;
     z-index: 30;
-    left: 20px;
-    top: 355px;
+    top: 80px;
     border: 1px solid $background;
     overflow: hidden;
     border-radius: 4px;

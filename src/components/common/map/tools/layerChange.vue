@@ -70,9 +70,10 @@ export default {
     width: 78px;
     height: 73px;
     position: absolute;
-    right: 10px;
-    bottom: 20px;
+    right: 70px;
+    bottom: 50px;
     z-index: 20;
+    transform: scale(2, 2);
     .mapTypeCard{
       width: 68px;
       height: 63px;

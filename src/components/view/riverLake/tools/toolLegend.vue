@@ -46,21 +46,20 @@ export default {
       let distanceX = event.clientX - toollegendList.offsetLeft
       let distanceY = event.clientY - toollegendList.offsetTop
       document.onmousemove = (e) => {
-        var m = e.clientX - distanceX
-        var n = e.clientY - distanceY
+        let m = e.clientX - distanceX
+        let n = e.clientY - distanceY
         if(m<0){
-           m=0
+          m=0
         }else if(m>document.documentElement.clientWidth-toollegendList.offsetWidth){
-           m=document.documentElement.clientWidth-toollegendList.offsetWidth
+          m=document.documentElement.clientWidth-toollegendList.offsetWidth
         }
-
         if(n<0){
           n=0
         }else if(n>document.documentElement.clientHeight-toollegendList.offsetHeight-75){
           n=document.documentElement.clientHeight-toollegendList.offsetHeight-75
         }
-          toollegendList.style.left =  m+ 'px' ;
-          toollegendList.style.top =  n+ 'px';
+        toollegendList.style.left =  m+ 'px' ;
+        toollegendList.style.top =  n+ 'px';
       }
       document.onmouseup = () => {
         document.onmousemove = null
@@ -81,26 +80,24 @@ export default {
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
   }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  .fade-enter, .fade-leave-to{
     opacity: 0;
   }
   .toolLegend-icon{
-      width: 30px;
-      height: 30px;
-      background:$background;
-      position: absolute;
-      right: 5px;
-      color: #fff;
-      font-size: 22px;
-      padding: 0px 4px;
-      bottom: 90px;
-      z-index: 55;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-
+    width: 30px;
+    height: 30px;
+    background:$background;
+    position: absolute;
+    right: 5px;
+    color: #fff;
+    font-size: 22px;
+    padding: 0px 4px;
+    bottom: 90px;
+    z-index: 55;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
-
   .toollegend-list{
     border-radius:4px;
     box-sizing: content-box;
@@ -144,7 +141,6 @@ export default {
     .toollegend-content{
       padding: 0 8px;
       width: 150px;
-
       >.conDiv{
         padding: 3px 0;
         width: 100%;
@@ -159,8 +155,6 @@ export default {
           margin-left:20px;
         }
       }
-
     }
   }
-
 </style>

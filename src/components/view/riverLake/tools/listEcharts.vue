@@ -138,7 +138,7 @@ export default {
       }
 
       let echartsIndex = this.dataTypeNav.length < this.indexTips ? 0 : this.indexTips
-      
+
       this.navTypeDefault = navId;
       this.dataTypeDefault = this.dataTypeNav[echartsIndex].tcode;
       this.echartsUnit = this.dataTypeNav[echartsIndex].unit;
@@ -325,7 +325,7 @@ export default {
               } else {
                 this.mapPostionArr = null
               }
-              
+
               this.drawManyLine(resultData)
             })
           }
@@ -364,6 +364,9 @@ export default {
       manyLineBarEcharts.setOption({
         tooltip: {
             trigger: 'axis'
+        },
+        textStyle:{
+          fontSize: 16
         },
         legend: {
             data: legendData,
@@ -446,10 +449,13 @@ export default {
             xAxisData = data[0].yearList
           }
       }
-      
+
       manyLineEcharts.setOption({
         tooltip: {
             trigger: 'axis'
+        },
+        textStyle:{
+          fontSize: 16
         },
         legend: {
             data:legendData,
@@ -517,7 +523,7 @@ export default {
 
       let minNumMark = (that.echartsType == 'line') ? Math.floor(Math.min.apply( Math, lookArr)) : 0
       let maxNumMark = Math.ceil(Math.max.apply( Math, lookArr))
-      
+
       let minNumCeil = minNumMark - Math.ceil(minNumMark / 3)
       let maxNumCeil = maxNumMark + Math.ceil(maxNumMark / 3)
 
@@ -526,9 +532,12 @@ export default {
 
       echartsContent.setOption({
         grid: [
-          { x: "4%", y: "18%", width: "92%", height: "68%" },
-          { x2: "4%", y: "18%", width: "92%", height: "68%" }
+          { x: "4%", y: "18%", width: "90%", height: "68%" },
+          { x2: "4%", y: "18%", width: "90%", height: "68%" }
         ],
+        textStyle:{
+          fontSize: 16
+        },
         tooltip: {
           trigger: "axis",
           formatter: '{b}年</br>{a} : &nbsp;{c} '+ that.echartsUnit +''
