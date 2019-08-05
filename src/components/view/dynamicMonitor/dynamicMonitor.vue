@@ -101,7 +101,9 @@
         this.map.addControl(new ol.control.Zoom());
         //实时显示坐标
         let mousePositionControl = new ol.control.MousePosition({
-          coordinateFormat: ol.coordinate.createStringXY(4),
+          coordinateFormat: (coordinate) => {
+            return ol.coordinate.format(coordinate, '经度：{x} 纬度：{y}', 2);
+          },
           projection: "EPSG:4326",
           className: "custom-mouse-position",
           target: document.getElementById("locationTitle"),
@@ -332,11 +334,11 @@
       position: absolute;
       bottom: 0;
       left: 30px;
-      height: 20px;
-      line-height: 20px;
+      height: 30px;
+      line-height: 30px;
       padding: 0 10px;
       background: rgba(204, 204, 204, 0.3);
-      font-size: 12px;
+      font-size: 16px;
       color: #000000;
       z-index: 12;
       border-radius: 5px;

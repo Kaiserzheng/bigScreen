@@ -3,6 +3,7 @@
     <div id="mapRiver" ref="map">
       <toolTwo v-if="map" @timeSliderToggle="timeSliderToggle" :timeSliderPosition="timeSliderPosition" :layerTSC="layerTimeSlideControl" :map="map" />
       <div ref="tipCt" id="tip" v-show="tipShow" v-bind:style="{left:left,top:top}">{{tipMessage}}</div>
+      <div id="locationTitle"></div> <!-- 左下角经纬度 -->
     </div>
     <layerChange v-if="map" :map="map"/>
     <toollegend></toollegend>
@@ -151,6 +152,17 @@
         this.addRiverSectionLayer(); //添加河道横切线
         //缩放控件
         this.map.addControl(new ol.control.Zoom());
+        //实时显示坐标
+        let mousePositionControl = new ol.control.MousePosition({
+          coordinateFormat: (coordinate) => {
+            return ol.coordinate.format(coordinate, '经度：{x} 纬度：{y}', 2);
+          },
+          projection: "EPSG:4326",
+          className: "custom-mouse-position",
+          target: document.getElementById("locationTitle"),
+          undefinedHTML: "&nbsp"
+        });
+        this.map.addControl(mousePositionControl);
 
         (()=>{
           let riverLakeFrontLayersInfo = this.$config.riverLakeFrontLayers;
@@ -280,6 +292,19 @@
       right: 0;
       z-index: 10;
       background: #ffffff;
+      #locationTitle {
+        position: absolute;
+        bottom: 0;
+        left: 30px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+        background: rgba(204, 204, 204, 0.3);
+        font-size: 16px;
+        color: #000000;
+        z-index: 12;
+        border-radius: 5px;
+      }
     }
     .echarts-toggle {
       width: 40px;

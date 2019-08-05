@@ -474,12 +474,12 @@ export default {
     position: fixed;
     bottom: 0;
     left: 20px;
-    height: 24px;
-    line-height: 24px;
+    height: 30px;
+    line-height: 30px;
     padding: 0 10px;
     z-index: 21;
     background: rgba(204, 204, 204, 0.3);
-    font-size: 12px;
+    font-size: 16px;
     color: #ffffff;
     border-radius: 5px;
   }
