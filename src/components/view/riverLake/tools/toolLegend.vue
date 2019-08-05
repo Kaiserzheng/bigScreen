@@ -88,11 +88,11 @@ export default {
     height: 30px;
     background:$background;
     position: absolute;
-    right: 10px;
+    top: 308px;
+    right: 100px;
     color: #fff;
     font-size: 22px;
     padding: 0px 4px;
-    bottom: 155px;
     z-index: 55;
     border-radius: 4px;
     cursor: pointer;
@@ -101,9 +101,9 @@ export default {
   .toollegend-list{
     border-radius:4px;
     box-sizing: content-box;
-    width: 150px;
+    width: 200px;
     position: absolute;
-    right: 10px;
+    right: 100px;
     top: 308px;
     z-index: 30;
     border: 1px solid $background;
@@ -112,7 +112,7 @@ export default {
     transition: width 0.3s ease, height 0.3s ease;
     .title {
       height: 30px;
-      width: 150px;
+      width: 100%;
       display: flex;
       align-items: center;
       background-color: $background;
@@ -140,7 +140,7 @@ export default {
     }
     .toollegend-content{
       padding: 0 8px;
-      width: 150px;
+      width: 100%;
       >.conDiv{
         padding: 3px 0;
         width: 100%;

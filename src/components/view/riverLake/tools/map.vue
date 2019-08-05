@@ -4,6 +4,7 @@
       <toolTwo v-if="map" @timeSliderToggle="timeSliderToggle" :timeSliderPosition="timeSliderPosition" :layerTSC="layerTimeSlideControl" :map="map" />
       <div ref="tipCt" id="tip" v-show="tipShow" v-bind:style="{left:left,top:top}">{{tipMessage}}</div>
       <div id="locationTitle"></div> <!-- 左下角经纬度 -->
+      <mapTools v-if="map" :map="map" />
     </div>
     <layerChange v-if="map" :map="map"/>
     <toollegend></toollegend>
@@ -19,7 +20,7 @@
   import toolTwo from "@/components/common/map/tools/toolTwo";
   import toollegend from "./toollegend";
   import {setTimeout} from 'timers';
-
+  import mapTools from "@/components/common/home/mapTools";
   export default {
     name: "rivateMap",
     props: ["mapName", "mapPosition"],
@@ -38,8 +39,8 @@
     components: {
       layerChange,
       toolTwo,
-      toollegend
-
+      toollegend,
+      mapTools
     },
     computed: {
       layerTimeSlideControl: function() {

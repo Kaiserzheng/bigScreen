@@ -1,7 +1,7 @@
 <template>
   <div v-if="navHeight">
-    <div :style="{'left': computedLeft}" class="tool-nav-icon" title="展开面板" :class="{'active': panelHide}" @click="panelHide = false" ref="tips"><i class="el-icon-s-order icon"></i></div>
-    <div class="tool-nav-list" :style="{'height': navHeight + 'px','left': computedLeft}" :class="{'hidden': panelHide}" ref="content" id="toolNav">
+    <div class="tool-nav-icon" title="展开面板" :class="{'active': panelHide}" @click="panelHide = false" ref="tips"><i class="el-icon-s-order icon"></i></div>
+    <div class="tool-nav-list" :style="{'height': navHeight + 'px'}" :class="{'hidden': panelHide}" ref="content" id="toolNav">
       <div class="title" @mousedown.stop="mousedown($event)">
         <div class="icon-content" title="收起面板" @click.stop="panelHide = true"><i class="el-icon-s-order icon"></i></div>
         <p>河湖检测对象</p>
@@ -30,8 +30,7 @@ export default {
       panelHide: false,
       navHeight: 0,
       navlistData: [],
-      loading: true,
-      computedLeft: ''
+      loading: true
     }
   },
   methods: {
@@ -52,9 +51,9 @@ export default {
         }else if(n>document.documentElement.clientHeight-toolNav.offsetHeight){
           n=document.documentElement.clientHeight-toolNav.offsetHeight
         }
-        this.$refs.tips.style.left =  m + 'px';
+        this.$refs.tips.style.right =  document.body.clientWidth - 200 - m + 'px';
         this.$refs.tips.style.top =  n + 'px';
-        toolNav.style.left =  m+ 'px' ;
+        toolNav.style.right =  document.body.clientWidth - 200 - m + 'px' ;
         toolNav.style.top =  n+ 'px';
       }
       document.onmouseup = () => {
@@ -89,7 +88,6 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.setNavHeight()
-      this.computedLeft = document.body.offsetWidth - 220 + 'px'
     })
   }
 }
@@ -106,6 +104,7 @@ export default {
     background-color: $background;
     position: absolute;
     top: 80px;
+    right: 110px;
     z-index: 29;
     opacity: 0;
     pointer-events: none;
@@ -125,7 +124,7 @@ export default {
     width: 200px;
     border-radius: 4px;
     position: absolute;
-    left: 20px;
+    right: 110px;
     top: 80px;
     z-index: 30;
     border: 1px solid $background;

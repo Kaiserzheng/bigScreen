@@ -1,7 +1,7 @@
 <template>
   <div class="topBox" v-if="navHeight">
-    <div class="tool-nav-icon" title="展开面板" :style="{'left': computedLeft}" :class="{'active': panelHide}" @click="panelHide = false" ref="tips"><Icon type="logo-buffer" /></div>
-    <div class="tool-nav-list" :style="{'height': navHeight + 'px','left': computedLeft}" :class="{'hidden': panelHide}" ref="content" id="toolNav">
+    <div class="tool-nav-icon" title="展开面板" :class="{'active': panelHide}" @click="panelHide = false" ref="tips"><Icon type="logo-buffer" /></div>
+    <div class="tool-nav-list" :style="{'height': navHeight + 'px'}" :class="{'hidden': panelHide}" ref="content" id="toolNav">
       <div class="title" @mousedown.stop="mousedown($event)">
         <div class="icon-content" title="收起面板" @click.stop="panelHide = true"><Icon type="logo-buffer" /></div>
         <p>{{navListTitle}}</p>
@@ -33,7 +33,6 @@
         navlistData: [],
         treeData: this.$config.thematicMonitoringTree,
         navListTitle: '图层管理',
-        computedLeft: ''
       }
     },
     methods: {
@@ -57,10 +56,10 @@
           }else if(n>document.documentElement.clientHeight-toolNav.offsetHeight-75){
             n=document.documentElement.clientHeight-toolNav.offsetHeight-75
           }
-          this.$refs.tips.style.left =  m + 'px';
-          this.$refs.tips.style.top =  n + 'px';
-          toolNav.style.left =  m+ 'px' ;
-          toolNav.style.top =  n+ 'px';
+          this.$refs.tips.style.right = document.body.clientWidth - this.$refs.content.offsetWidth - m + 'px';
+          this.$refs.tips.style.top = n + 'px';
+          toolNav.style.right = document.body.clientWidth - this.$refs.content.offsetWidth - m + 'px';
+          toolNav.style.top = n+ 'px';
         }
         document.onmouseup = () => {
           document.onmousemove = null
@@ -80,15 +79,14 @@
   mounted() {
     this.$nextTick(() => {
       this.setNavHeight()
-      this.computedLeft = document.body.offsetWidth - 260 + 'px'
     })
   }
 }
 </script>
 <style lang="scss" scoped>
   .tool-nav-icon {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -96,12 +94,13 @@
     background-color: $background;
     position: absolute;
     top: 5px;
+    right: 20px;
     z-index: 29;
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
     i {
-      font-size: 20px;
+      font-size: 34px;
       color: #fff;
     }
     &.active {
@@ -114,6 +113,7 @@
     width: 200px;
     position: absolute;
     top: 5px;
+    right: 20px;
     border-radius: 4px;
     box-sizing: content-box;
     z-index: 30;
@@ -127,7 +127,7 @@
       pointer-events: none;
     }
     .title {
-      height: 30px;
+      height: 40px;
       width: 100%;
       display: flex;
       align-items: center;
@@ -136,19 +136,19 @@
       white-space: nowrap;
       cursor: move;
       .icon-content {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
         i {
-          font-size: 20px;
+          font-size: 34px;
           color: #fff;
         }
       }
       p {
-        font-size: 16px;
+        font-size: 24px;
         padding-left: 5px;
         pointer-events: none;
         user-select: none;
@@ -157,7 +157,7 @@
     .nav-content {
       padding: 0 8px;
       min-height: 115px;
-      width: 150px;
+      width: 200px;
       padding-bottom: 22px;
       > .item {
         padding: 5px 0;
@@ -172,8 +172,12 @@
     .nav-content > .item:nth-last-child(2) {
       border-bottom: none;
     }
-    /deep/ .leftTree span{
-      font-size: 16px!important;
+    /deep/ .el-tree-node__label{
+      font-size: 20px!important;
+      padding-left: 5px;
+    }
+    /deep/ .el-tree-node__content{
+      margin-top: 5px;
     }
   }
 </style>

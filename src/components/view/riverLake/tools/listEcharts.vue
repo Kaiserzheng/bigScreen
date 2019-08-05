@@ -94,7 +94,11 @@ export default {
       indexTips: 0,
       mapPostionArr: [],
       isLake: false,
-      yellowRiver: false
+      yellowRiver: false,
+      colorList: [
+        '#56a1d5', '#62c3e5', '#87dde1', '#aee4bb', '#fadb71',
+        '#f2a385', '#ea7a94', '#e0beef', '#807ae3', '#9abaf3'
+      ]
     };
   },
   methods: {
@@ -350,14 +354,14 @@ export default {
       for(let i = 0; i < getDatas.length; i++) {
         legendData.push(getDatas[i].segname)
         seriesData.push({
-            name: getDatas[i].segname,
-            type: that.echartsType,
-            data: getDatas[i].segdata,
-            markLine : {
-                data : [
-                    {type : 'average', name: '平均值'}
-                ]
-            }
+          name: getDatas[i].segname,
+          type: that.echartsType,
+          data: getDatas[i].segdata,
+          markLine : {
+            data : [
+              {type : 'average', name: '平均值'}
+            ]
+          }
         })
       }
       xAxisData = data.yearList
@@ -366,11 +370,16 @@ export default {
             trigger: 'axis'
         },
         textStyle:{
-          fontSize: 16
+          fontSize: 22,
+          color: '#ffffff'
         },
         legend: {
-            data: legendData,
-            top: 10
+          data: legendData,
+          top: 10,
+          textStyle: {
+            color: '#ffffff',
+            fontSize: 18
+          }
         },
         grid: [
           { x: "4%", y: "18%", width: "90%", height: "68%" },
@@ -386,11 +395,20 @@ export default {
         xAxis: {
             name: that.echartsXlineUnit,
             type: 'category',
-            data: xAxisData
+            data: xAxisData,
+            axisLabel: {
+              fontSize: 20,
+              color: '#ffffff'
+            }
         },
+        color:that.colorList,
         yAxis: {
             name: "单位：" + that.echartsUnit,
-            type: 'value'
+            type: 'value',
+            axisLabel: {
+              fontSize: 20,
+              color: '#ffffff'
+            }
         },
         series: seriesData
       }, true)
@@ -411,7 +429,7 @@ export default {
             name: item,
             type: 'line',
             smooth: true,
-            data: data.rmsmMap[item]
+            data: data.rmsmMap[item],
           })
         }
         xAxisData = data.secIdList
@@ -422,7 +440,7 @@ export default {
             name: item,
             type: 'line',
             smooth: true,
-            data: data.rmbcMap[item]
+            data: data.rmbcMap[item],
           })
         }
         xAxisData = data.cscode
@@ -433,7 +451,7 @@ export default {
               name: data[0].slType,
               type: 'line',
               smooth: true,
-              data: data[0].sllList
+              data: data[0].sllList,
             })
             xAxisData = data[0].yearList
           } else {
@@ -443,7 +461,7 @@ export default {
                 name: item.slType,
                 type: 'line',
                 smooth: true,
-                data: item.sllList
+                data: item.sllList,
               })
             })
             xAxisData = data[0].yearList
@@ -455,11 +473,16 @@ export default {
             trigger: 'axis'
         },
         textStyle:{
-          fontSize: 16
+          fontSize: 22,
+          color: '#ffffff'
         },
         legend: {
-            data:legendData,
-            top: 10
+          data:legendData,
+          top: 10,
+          textStyle: {
+            color: '#ffffff',
+            fontSize: 18
+          }
         },
         grid: [
           { x: "4%", y: "18%", width: "90%", height: "68%" },
@@ -473,12 +496,21 @@ export default {
         xAxis: {
             name: that.echartsXlineUnit,
             type: 'category',
-            data: xAxisData
+            data: xAxisData,
+            axisLabel: {
+              fontSize: 20,
+              color: '#ffffff'
+            }
         },
         yAxis: {
             name: "单位：" + that.echartsUnit,
-            type: 'value'
+            type: 'value',
+            axisLabel: {
+              fontSize: 20,
+              color: '#ffffff'
+            }
         },
+        color:that.colorList,
         series: seriesData
       }, true)
 
@@ -536,7 +568,8 @@ export default {
           { x2: "4%", y: "18%", width: "90%", height: "68%" }
         ],
         textStyle:{
-          fontSize: 16
+          fontSize: 22,
+          color: '#ffffff'
         },
         tooltip: {
           trigger: "axis",
@@ -550,13 +583,17 @@ export default {
         },
         calculable: true,
         xAxis: [
-            {
+          {
             type: "category",
             name: that.echartsXlineUnit,
             axisLine: {
               onZero: false
             },
-            data: xAxisData
+            data: xAxisData,
+            axisLabel: {
+              fontSize: 20,
+              color: '#ffffff'
+            }
           }
         ],
         yAxis: [
@@ -570,9 +607,14 @@ export default {
               lineStyle: {
                 color: "#e5e5e5"
               }
+            },
+            axisLabel: {
+              fontSize: 20,
+              color: '#ffffff'
             }
           }
         ],
+        color:that.colorList,
         series: [
           {
             name: that.echartsName,
@@ -581,9 +623,6 @@ export default {
             markLine: {
               data: [{ type: "average", name: "平均值" }]
             },
-            itemStyle: {
-              color: "#1087e6"
-            }
           }
         ]
       }, true);
@@ -653,7 +692,7 @@ export default {
 .echarts-content {
   width: 100%;
   transition: all 0.3s ease-in-out;
-  background-color: #fff;
+  background-color: $ehartBg;
   .tab-nav {
     width: 100%;
     overflow: hidden;
@@ -805,6 +844,7 @@ export default {
         display: flex;
         align-items: center;
         transition: transform 0.5s ease-in-out;
+        color: #fff;
         > .item {
           float: left;
           padding: 5px 15px;

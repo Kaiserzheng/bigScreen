@@ -40,16 +40,6 @@ em,i{
 img{
   display:block;border:0;
 }
-#app {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  border-style: solid;
-  border-color: rgb(22, 38, 89);
-  border-width: 40px 10px 20px 20px;
-}
 .ol-overlaycontainer-stopevent,.cesium-viewer-fullscreenContainer,.cesium-viewer-bottom{
   display: none!important;
 }
@@ -61,4 +51,16 @@ img{
 .el-scrollbar__wrap{
   overflow-x:hidden;
 }
+</style>
+<style lang="scss" scoped>
+  #app {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: $borderColor;
+    border-width: 40px 10px 20px 20px;
+  }
 </style>

@@ -2,7 +2,7 @@
   <div>
     <div class="toolLegend-icon" title="展开面板" v-show="panel" @click="panelClick"><Icon type="ios-list" /></div>
     <transition name="fade">
-      <div class="toollegend-list" id="toollegend-list" :style="{top: positionBot+'px'}" ref="content" v-if="panelHideBox">
+      <div class="toollegend-list" id="toollegend-list" ref="content" v-if="panelHideBox">
         <div class="title" @mousedown.stop="mousedown($event)">
           <div class="icon-content" title="收起面板" @click="panelHideBox11"><Icon type="ios-list" /></div>
           <p>{{title}}</p>
@@ -68,7 +68,6 @@
           '50-60': '251, 154, 41',
           '60-70': '255, 85, 1'
         },
-        positionBot: ''
       }
     },
     methods: {
@@ -99,8 +98,8 @@
           }else if(n>document.body.clientHeight-toollegendList.offsetHeight-75){
             n=document.body.clientHeight-toollegendList.offsetHeight-75
           }
-          toollegendList.style.left =  m+ 'px' ;
-          toollegendList.style.top =  n+ 'px';
+          toollegendList.style.left =  m + 'px' ;
+          toollegendList.style.bottom = document.body.clientHeight - this.$refs.content.offsetHeight - n + 'px';
         }
         document.onmouseup = () => {
           document.onmousemove = null
@@ -110,11 +109,6 @@
     },
     mounted() {
       this.toolLegendList=this.$config.toolLegend
-      this.$nextTick( () => {
-        console.log(document.body.clientHeight);
-        console.log(this.$refs.content.clientHeight);
-        this.positionBot = document.body.clientHeight - 100 - this.$refs.content.clientHeight
-      })
       setTimeout(()=>{
         this.panel=true
         this.panelHideBox=false
@@ -130,36 +124,43 @@
     opacity: 0;
   }
   .toolLegend-icon{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background:$background;
     position: absolute;
     left: 5px;
     color: #fff;
-    font-size: 22px;
+    font-size: 24px;
     padding: 0px 4px;
     bottom: 20px;
     z-index: 55;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      font-size: 34px;
+      color: #fff;
+    }
   }
 
   .toollegend-list{
     border-radius:4px;
     box-sizing: content-box;
-    width: 300px;
+    width: 400px;
     position: absolute;
     left: 5px;
     z-index: 30;
-    top:70%;
+    bottom: 20px;
     border: 1px solid $background;
     background-color:$workspacebag;
     overflow: hidden;
     transition: width 0.3s ease, height 0.3s ease;
     .title {
-      height: 30px;
-      width: 300px;
+      height: 40px;
+      width: 400px;
       display: flex;
       align-items: center;
       background-color: $background;
@@ -168,18 +169,18 @@
       cursor: move;
       .icon-content {
         width: 30px;
-        height: 30px;
+        height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
         i {
-          font-size: 20px;
+          font-size: 34px;
           color: #fff;
         }
       }
       p {
-        font-size: 14px;
+        font-size: 24px;
         padding-left: 5px;
         pointer-events: none;
         user-select: none;
@@ -187,7 +188,7 @@
     }
     .toollegend-content{
       padding: 0 8px;
-      width: 300px;
+      width: 400px;
       padding-bottom: 5px;
       overflow: hidden;
       .left,.right{

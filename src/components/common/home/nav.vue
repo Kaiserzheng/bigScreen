@@ -60,7 +60,7 @@ export default {
       width: 288px;
       height: 76px;
       border-radius: 0 38px 38px 0;
-      background: rgb(28, 45, 98);
+      background: $borderColor;
       color: #ffffff;
       position: absolute;
       cursor: pointer;

@@ -8,6 +8,7 @@
       <layerChange v-if="map" :map="map" /> <!-- 基础底图切换 -->
       <toollegend></toollegend> <!-- 图例 -->
       <!--<information></information> 动态监测统计图表-->
+      <mapTools v-if="map" :map="map" />
     </div>
     <!-- ol弹窗不能直接使用组件作为父容器，故套一层 -->
     <div id="popup" class="ol-popup">
@@ -36,6 +37,7 @@
   // import information from "@/components/view/pecialMonitor/tools/information";
   import leftTree from "./tools/leftTree";
   import popup from "./tools/popup";
+  import mapTools from "@/components/common/home/mapTools";
   import { setTimeout } from "timers";
   export default {
     name: "specialMap",
@@ -60,6 +62,7 @@
       leftTree,
       popup,
       toollegend,
+      mapTools
     },
     computed: {
       layerTimeSlideControl: function() {
