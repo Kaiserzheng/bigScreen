@@ -122,7 +122,7 @@
       position: fixed;
       left: 50%;
       z-index: 30;
-      padding: 0 36px 24px 36px;
+      padding: 0 50px 24px 50px;
       overflow: hidden;
       width: 400px;
       border-radius: 5px;

@@ -415,7 +415,7 @@ export default {
 #toolThree {
   height: 24px;
   position: absolute;
-  right: 130px;
+  right: -20000px;
   top: 20px;
   z-index: 66;
   //overflow: hidden;
@@ -424,16 +424,20 @@ export default {
   transition:width 0.4s linear;
   .block {
     position: fixed;
-    bottom: 20px;
+    bottom: 60px;
     left: 50%;
     z-index: 30;
-    padding: 0 36px 12px 30px;
+    padding: 0 50px 24px 50px;
     overflow: hidden;
-    width: 300px;
+    width: 400px;
     border-radius: 5px;
     background: #f1f1f1;
-    margin-left: -150px;
+    margin-left: -200px;
     display: block;
+    /deep/ .el-slider__marks-text{
+      font-size: 18px;
+      white-space:nowrap;
+    }
   }
   .tranBox{
     height: 24px;

@@ -1,12 +1,12 @@
 <template>
-  <div class="topBox" v-if="navHeight">
+  <div class="topBox">
     <div class="tool-nav-icon" title="展开面板" :class="{'active': panelHide}" @click="panelHide = false" ref="tips"><Icon type="logo-buffer" /></div>
-    <div class="tool-nav-list" :style="{'height': navHeight + 'px'}" :class="{'hidden': panelHide}" ref="content" id="toolNav">
+    <div class="tool-nav-list" :class="{'hidden': panelHide}" ref="content" id="toolNav">
       <div class="title" @mousedown.stop="mousedown($event)">
         <div class="icon-content" title="收起面板" @click.stop="panelHide = true"><Icon type="logo-buffer" /></div>
         <p>{{navListTitle}}</p>
       </div>
-      <div :style="{'height': (navHeight - 30) + 'px'}">
+      <div>
         <el-tree
           class="leftTree"
           :data="treeData"
@@ -29,7 +29,6 @@
     data() {
       return {
         panelHide: false,
-        navHeight: 0,
         navlistData: [],
         treeData: this.$config.thematicMonitoringTree,
         navListTitle: '图层管理',
@@ -68,9 +67,6 @@
       },
 
     // 设置河湖监测列表高度
-    setNavHeight() {
-      this.navHeight = 260
-    },
     checkChange(data,selfCheck,childCheck){
       console.log(selfCheck)
       this.$emit("thematicChange",data,selfCheck,childCheck);
@@ -78,7 +74,7 @@
   },
   mounted() {
     this.$nextTick(() => {
-      this.setNavHeight()
+
     })
   }
 }
@@ -110,8 +106,9 @@
     }
   }
   .tool-nav-list {
-    width: 200px;
+    width: 230px;
     position: absolute;
+    min-height: 200px;
     top: 5px;
     right: 20px;
     border-radius: 4px;
@@ -157,7 +154,8 @@
     .nav-content {
       padding: 0 8px;
       min-height: 115px;
-      width: 200px;
+      width: 100%;
+      min-height: 160px;
       padding-bottom: 22px;
       > .item {
         padding: 5px 0;

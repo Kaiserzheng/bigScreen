@@ -1,29 +1,52 @@
 <template>
   <div id="map3dBox">
-    <toolThree ref="tool" v-if="cesiumInstance" :cesiumInstance="cesiumInstance" @addImageLayer="addImageLayer"
-               @closeImageLayer="closeImageLayer"/>
+    <toolThree
+      ref="tool"
+      v-if="cesiumInstance"
+      :cesiumInstance="cesiumInstance"
+      @addImageLayer="addImageLayer"
+      @closeImageLayer="closeImageLayer"
+    />
     <sm-viewer id="map3D" @ready="ready" navigation fullscreenButton></sm-viewer>
     <toolNav v-if="cesiumInstance" :cesiumInstance="cesiumInstance" />
 
     <!-- 底图切换 -->
-    <div class="basic-map-tips" title="底图切换" :class="{'active': basicTipsShow}" @click="basicTipsShow = !basicTipsShow">
-      <img :src="basicMapTips" alt=""></div>
+    <div
+      class="basic-map-tips"
+      title="底图切换"
+      :class="{'active': basicTipsShow}"
+      @click="basicTipsShow = !basicTipsShow"
+    >
+      <img :src="basicMapTips" alt />
+    </div>
     <div class="basic-map-content" :class="{'active': basicTipsShow}">
       <div class="item-content">
         <p class="title">底图选择</p>
         <div class="main">
-          <div class="item"
-               v-for="(item, index) in basicMapData" :key="index"
+          <div
+            class="item"
+            v-for="(item, index) in basicMapData"
+            :key="index"
                :class="{'active': index == basicMapDefalut}"
-               @click="basicMapChange(item, index)">
-            <div class="poster"><img :src="item.imgUrl" alt=""></div>
+            @click="basicMapChange(item, index)"
+          >
+            <div class="poster">
+              <img :src="item.imgUrl" alt />
+            </div>
             <p class="name">{{item.cnName}}</p>
           </div>
         </div>
       </div>
       <div class="scence-check">
-        <p>地形展示</p>
-        <el-checkbox label="开启" v-model="scenceShow" @change="scenceShowChange"></el-checkbox>
+        <div>
+          <p>地形展示</p>
+          <el-checkbox label="开启" v-model="scenceShow" @change="scenceShowChange"></el-checkbox>
+        </div>
+        <div>
+          <p>时间轴</p>
+          <el-checkbox label="开启" @change="timeSliderToggle"></el-checkbox>
+        </div>
+
       </div>
     </div>
   </div>
@@ -298,8 +321,12 @@ export default {
           });
         }
       }).catch( (err) => {
+
       })
     },
+    timeSliderToggle(){
+      this.$refs.tool.timeLineShowHandle()
+    }
   }
 };
 </script>
@@ -324,23 +351,24 @@ export default {
       width: 80px;
     }
     .basic-map-tips {
+      transform: scale(1.5, 1.5);
       width: 50px;
       height: 50px;
       border-radius: 4px;
       border: 1px solid #fff;
       position: fixed;
-      right: 49px;
-      bottom: 20px;
+      right: 55px;
+      bottom: 40px;
       z-index: 20;
       overflow: hidden;
       cursor: pointer;
       transition: all 0.25s ease;
       &.active {
-        bottom: 295px;
-        border-color: #3E8FD0;
+      bottom: 584px;
+      border-color: #3e8fd0;
       }
       &:hover {
-        box-shadow: 0 0 15px rgba(62, 143, 208, .8);
+      box-shadow: 0 0 15px rgba(62, 143, 208, 0.8);
       }
       > img {
         width: 100%;
@@ -348,30 +376,36 @@ export default {
       }
     }
     .basic-map-content {
+    transform: scale(1.5, 1.5);
       width: 200px;
-      height: 255px;
+      height: 340px;
       border-radius: 4px;
       background-color: #fff;
       position: fixed;
-      right: 49px;
-      bottom: -300px;
+      right: 89px;
+      bottom: -430px;
       z-index: 20;
       transition: all 0.25s ease;
       &.active {
         pointer-events: auto;
         opacity: 1;
-        bottom: 20px;
+        bottom: 130px;
       }
       > .scence-check {
-        padding: 0 10px;
-        padding-top: 10px;
+        padding: 10px 10px 0 10px;
         border-top: 1px solid #ddd;
         width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         > p {
           font-size: 15px;
+        }
+        >div{
+          width: 100%;
+          height: 20px;
+          float: left;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
         }
       }
       > .item-content {
@@ -396,7 +430,7 @@ export default {
               border: 1px solid #ddd;
               > img {
                 width: 100%;
-                height: 100%;;
+              height: 100%;
               }
             }
             > .name {
@@ -407,10 +441,10 @@ export default {
             }
             &.active {
               > .poster {
-                border-color: #3E8FD0;
+              border-color: #3e8fd0;
               }
               > .name {
-                color: #3E8FD0;
+              color: #3e8fd0;
               }
             }
           }
